@@ -2,6 +2,7 @@ from server.db.pool import conn
 
 cursor = conn.cursor()
 
+
 def create_initial_database():
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS cards (
@@ -15,26 +16,39 @@ def create_initial_database():
 
     conn.commit()
 
+
 def create_card(title, description, type, url, tags):
-    cursor.execute("""
+    cursor.execute(
+        """
     INSERT INTO cards (title, description, type, url, tags) VALUES (?, ?, ?, ? ,?)
-    """, (title, description, type, url, tags))
+    """,
+        (title, description, type, url, tags),
+    )
 
     conn.commit()
+
 
 def update_card(id, title, description, type, url, tags):
-    cursor.execute("""
+    cursor.execute(
+        """
     UPDATE cards SET title=?, description=?, type=?, url=?, tags=? WHERE id=?
-    """, (title, description, type, url, tags, id))
+    """,
+        (title, description, type, url, tags, id),
+    )
 
     conn.commit()
+
 
 def delete_card(id):
-    cursor.execute("""
+    cursor.execute(
+        """
     DELETE FROM cards WHERE id = ?                    
-    """, (id))
+    """,
+        (id),
+    )
 
     conn.commit()
+
 
 def get_all_cards():
     cursor.execute("SELECT * FROM cards")
