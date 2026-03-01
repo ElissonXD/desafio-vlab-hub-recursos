@@ -1,0 +1,48 @@
+.CreateCard{
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
+    justify-content: center;
+    align-items: baseline;
+    border: 4px solid orange;
+    border-radius: 8px;
+    padding: 10vh;
+    place-items: center;
+    
+}
+
+.CreateCard h2{
+    margin: 0;
+}
+
+.Createform{
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+}
+
+.Createform input, select{
+    width: 50vh;
+}
+
+.disabled{
+    background-color: grey;
+    cursor:wait;
+}
+
+.Createform button{
+    align-self: baseline;
+}
+
+.ExtraButtons{
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+    align-self: baseline;
+}
+
+.Createform textarea{
+    max-width: 100vh;
+    min-height: 20vh;
+}
+

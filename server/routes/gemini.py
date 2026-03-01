@@ -12,6 +12,6 @@ class GeminiRequest(BaseModel):
 
 
 @router.post("/gemini")
-async def get_gemini_response(request: GeminiRequest):
-    data = await geminiController.get_gemini_response(request)
+def get_gemini_response(request: GeminiRequest):
+    data = geminiController.get_gemini_response(request)
     return JSONResponse(status_code=200, content=data)

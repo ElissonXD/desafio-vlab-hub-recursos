@@ -9,6 +9,7 @@ router = APIRouter()
 
 
 class CardSchema(BaseModel):
+    id: int | None = None
     title: str
     description: str
     type: str
@@ -16,26 +17,17 @@ class CardSchema(BaseModel):
     tags: str
 
 
+class AllCardsSchema(BaseModel):
+    cards: list[CardSchema] = []
+
+
 @router.get("/card")
 def get_cards():
-
-    data = cardController.get_cards()
-    return JSONResponse(status_code=200, content=data)
+    data = AllCardsSchema(**cardController.get_cards())
+    return JSONResponse(status_code=200, content=data.model_dump())
 
 
 @router.post("/card")
 def create_card(card: CardSchema):
     cardController.create_card(card)
-    return JSONResponse(status_code=200, content={"success": True})
-
-
-@router.put("/card")
-def update_card(id: int, card: CardSchema):
-    cardController.update_card(id, card)
-    return JSONResponse(status_code=200, content={"success": True})
-
-
-@router.delete("/card")
-def delete_card(id: int):
-    cardController.delete_card(id)
     return JSONResponse(status_code=200, content={"success": True})

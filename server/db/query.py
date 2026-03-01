@@ -44,10 +44,21 @@ def delete_card(id):
         """
     DELETE FROM cards WHERE id = ?                    
     """,
-        (id),
+        (id,),
     )
 
     conn.commit()
+
+
+def get_card_by_id(id):
+    cursor.execute(
+        """
+    SELECT * FROM cards WHERE id = ?               
+    """,
+        (id,),
+    )
+    data = cursor.fetchone()
+    return data
 
 
 def get_all_cards():

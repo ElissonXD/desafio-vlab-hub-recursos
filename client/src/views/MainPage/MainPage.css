@@ -1,0 +1,28 @@
+.MainPage{
+    display: grid;
+    grid-column: 1/-1;
+    grid-template-columns: 1fr 4fr;
+    gap: 10vh;
+    padding: 10vh;
+}
+
+
+.ContentBox{
+    display: grid;
+    gap: 5vh;
+}
+
+.Button{
+    align-self: baseline;
+}
+
+@media (max-width:600px){
+    .MainPage{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .Button{
+        align-self: center;
+    }
+}
