@@ -12,7 +12,7 @@ def get_cards():
                 "description": row[2],
                 "type": row[3],
                 "url": row[4],
-                "tags": row[5],
+                "tags": row[5]
             }
         )
     return {"cards": mapped_data}
@@ -21,12 +21,3 @@ def get_cards():
 def create_card(card):
     query.create_card(card.title, card.description, card.type, card.url, card.tags)
 
-
-def update_card(card):
-    query.update_card(
-        card.id, card.title, card.description, card.type, card.url, card.tags
-    )
-
-
-def delete_card(id):
-    query.delete_card(id)
