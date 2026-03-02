@@ -61,7 +61,32 @@ def get_card_by_id(id):
     return data
 
 
-def get_all_cards():
-    cursor.execute("SELECT * FROM cards")
+def get_all_cards(get_schema):
+    query = "SELECT * FROM cards WHERE 1=1"
+    count_query = "SELECT COUNT(*) FROM cards WHERE 1=1"
+    params = []
+
+    if get_schema.title:
+        query += " AND title LIKE ?"
+        count_query += " AND title LIKE ?"
+        params.append(f"%{get_schema.title}%")
+
+    if get_schema.type:
+        query += " AND type = ?"
+        count_query += " AND type = ?"
+        params.append(get_schema.type)
+
+    if get_schema.tags:
+        query += " AND tags LIKE ?"
+        count_query += " AND tags LIKE ?"
+        params.append(f"%{get_schema.tags}%")
+
+    query += " LIMIT ? OFFSET ?"
+    params += [get_schema.limit, get_schema.offset]
+
+    cursor.execute(query, params)
     data = cursor.fetchall()
-    return data
+
+    cursor.execute(count_query, params[:-2])
+    count = cursor.fetchone()[0]
+    return {"cards": data, "count": count}

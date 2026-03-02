@@ -1,8 +1,10 @@
 from server.db import query
 
 
-def get_cards():
-    data = query.get_all_cards()
+def get_cards(get_schema):
+    response = query.get_all_cards(get_schema)
+    data = response["cards"]
+    count = response["count"]
     mapped_data = []
     for row in data:
         mapped_data.append(
@@ -15,7 +17,7 @@ def get_cards():
                 "tags": row[5],
             }
         )
-    return {"cards": mapped_data}
+    return {"cards": mapped_data, "count": count}
 
 
 def create_card(card):

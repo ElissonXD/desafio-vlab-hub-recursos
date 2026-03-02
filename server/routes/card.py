@@ -1,4 +1,4 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Depends
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 from server.controllers import cardController
@@ -17,14 +17,24 @@ class CardSchema(BaseModel):
     tags: str
 
 
+class GetSchema(BaseModel):
+    limit: int
+    offset: int
+    title: str
+    type: str
+    tags: str
+
+
 class AllCardsSchema(BaseModel):
     cards: list[CardSchema] = []
 
 
 @router.get("/card")
-def get_cards():
-    data = AllCardsSchema(**cardController.get_cards())
-    return JSONResponse(status_code=200, content=data.model_dump())
+def get_cards(get_schema: GetSchema = Depends()):
+    response = cardController.get_cards(get_schema)
+    cards = AllCardsSchema(cards=response["cards"])
+    count = response["count"]
+    return JSONResponse(status_code=200, content={**cards.model_dump(), "count": count})
 
 
 @router.post("/card")
