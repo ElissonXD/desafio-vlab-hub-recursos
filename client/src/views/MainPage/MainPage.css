@@ -6,6 +6,21 @@
     padding: 10vh;
 }
 
+.Pagination{
+    display: flex;
+    gap: 2vh;
+}
+
+.PageNumber{
+    font-size: larger;
+    font-weight: 700;
+    transition: ease 0.25s;
+}
+
+.PageNumber:hover{
+    cursor: pointer;
+    color: grey;
+}
 
 .ContentBox{
     display: grid;

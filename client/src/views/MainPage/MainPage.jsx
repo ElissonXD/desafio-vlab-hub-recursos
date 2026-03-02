@@ -27,6 +27,17 @@ function MainPage(){
     req()
     }, [])
 
+    // Paginação
+    const [itensperPage, setItensperPage] = useState(3)
+    const [currentPage, setCurrentPage] = useState(0)
+
+    const pages = Math.ceil(cards.length / itensperPage)
+    const startIndex = currentPage * itensperPage
+    const endIndex = startIndex + itensperPage
+    const currentItens = cards.slice(startIndex, endIndex)
+
+
+
     function navigateCreate(){
         navigate("/criar")
     }
@@ -37,9 +48,14 @@ function MainPage(){
             {loading && (<div>Carregando...</div>)}
             {(error && !loading) && (<div>Algo deu de errado ao coletar informações, tente novamente mais tarde</div>)}
                 {!error && !loading && (
-                    cards.length > 0 ? (
+                    currentItens.length > 0 ? (
                         <div className='ContentBox'>
-                            {cards.map((card) => (
+                            <div className='Pagination'>
+                                {Array.from(Array(pages), (item, index) => {
+                                    return <div className='PageNumber' key={index} onClick={() => setCurrentPage(index)}>{index + 1}</div>
+                                })}
+                            </div>
+                            {currentItens.map((card) => (
                                 <CardBox key = {card.id} card = {card}/>
                             ))}
                         </div>

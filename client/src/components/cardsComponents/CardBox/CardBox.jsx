@@ -14,8 +14,7 @@ function CardBox({card}){
     return (
         <div className="CardBox">
             <div className="TopBar">
-                <h2>{card.title}</h2>
-                <h2>ID do material: # {card.id}</h2>
+                <h2>Título: {card.title}</h2>
             </div>
             <p>{card.description}</p>
             <div className="MiddleBar">
