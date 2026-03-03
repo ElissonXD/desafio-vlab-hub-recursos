@@ -20,7 +20,7 @@ def create_initial_database():
 def create_card(title, description, type, url, tags):
     tags_split = [tag.strip() for tag in tags.split(",")]
     tags_formated = ",".join(tags_split)
-    
+
     cursor.execute(
         """
     INSERT INTO cards (title, description, type, url, tags) VALUES (?, ?, ?, ? ,?)
