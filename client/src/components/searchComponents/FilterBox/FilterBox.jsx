@@ -23,7 +23,7 @@ function FilterBox({ onChange, filters}){
 
                     <div className='InputLabel'>
                         <label htmlFor='tags'>Tags:</label>
-                        <input name = "tags" value = {filters.tags} onChange={onChange} placeholder="Separe as tags por vírgula e um espaço!"></input>
+                        <input name = "tags" value = {filters.tags} onChange={onChange} placeholder="Separe as tags por vírgula!"></input>
                     </div>
                 </form>
 

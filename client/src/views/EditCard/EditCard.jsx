@@ -107,7 +107,7 @@ function EditCard(){
                         <label htmlFor='description'>Descrição</label>
                         <textarea name = "description" id="description" value = {card.description} onChange={handleInputChange} required></textarea>
                         <label htmlFor='tags'>Tags</label>
-                        <input name = "tags" id="tags" value = {card.tags} placeholder="Separe as tags por vírgula e um espaço!" onChange={handleInputChange} required></input>
+                        <input name = "tags" id="tags" value = {card.tags} placeholder="Separe as tags por vírgula!" onChange={handleInputChange} required></input>
                         <button type = "submit" className={submit ? "disabled" : ""}>Confirmar alterações</button>
                     </form>
                     <button className = "ReturnButton" onClick={() => {navigate("/")}}>Voltar</button>

@@ -1,14 +1,17 @@
 import "./CardBox.css"
+import Tag from "../Tag/Tag"
 import { useNavigate } from "react-router-dom"
 
 
-function CardBox({card}){
+function CardBox({card, handleClick}){
 
     const navigate = useNavigate()
 
     function handleNavigate(){
     navigate(`/editar/${card.id}`)
     }
+
+    const tags = card.tags.split(", ")
 
 
     return (
@@ -20,7 +23,12 @@ function CardBox({card}){
             <div className="MiddleBar">
                 <p><strong>Tipo:</strong> {card.type}</p>
                 <p><strong>URL/Link:</strong> <a target="blank" href={card.url}>{card.url}</a></p>
-                <p><strong>Tags:</strong> {card.tags}</p>
+                <div className="TagSection">
+                    <strong>Tags:</strong>
+                    {tags.map((tag) => (
+                        <Tag key={tag} name={tag} onClick={handleClick} />
+                    ))}
+                </div>
             </div>
             <button onClick={handleNavigate}>Editar</button>
         </div>

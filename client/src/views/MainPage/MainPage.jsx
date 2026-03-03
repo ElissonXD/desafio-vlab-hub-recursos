@@ -50,7 +50,11 @@ function MainPage(){
     req()
     }, [currentPage, itensperPage, filters])
 
-
+    // Clique da Tag
+    function handleTag(e){
+        const newFilter = {...filters, tags: e.target.value}
+        setFilters(newFilter)
+    }
 
     function navigateCreate(){
         navigate("/criar")
@@ -76,7 +80,7 @@ function MainPage(){
                                     })}
                                 </div>
                                 {cards.map((card) => (
-                                    <CardBox key = {card.id} card = {card}/>
+                                    <CardBox key = {card.id} card = {card} handleClick={handleTag}/>
                                 ))}
                             </div>
                         )

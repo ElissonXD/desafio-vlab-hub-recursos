@@ -1,0 +1,24 @@
+.Tag button{
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+    border-radius: 16px;
+    transition: ease 0.1s;
+}
+
+.Tag button:hover{
+    background-color: black;
+    border: 1px solid white;
+    color: white;
+}
+
+.Tag{
+    display: flex;
+    gap: 1vh;
+    align-items: center;
+}
+
+.Tag img{
+    width: 16px;
+    height: 16px;
+}

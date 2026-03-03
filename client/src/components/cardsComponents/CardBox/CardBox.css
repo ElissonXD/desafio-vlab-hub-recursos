@@ -11,6 +11,12 @@
     cursor: pointer;
 }
 
+.TagSection{
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+}
+
 .TopBar{
     display: flex;
     justify-content: space-between;

@@ -99,7 +99,7 @@ function CreateCard(){
                 </div>
                 <div className='InputLabel'>
                     <label htmlFor='tags'>Tags</label>
-                    <input name = "tags" id="tags" value = {data.tags} onChange={handleInputChange} placeholder="Separe as tags por vírgula e um espaço!" required></input>
+                    <input name = "tags" id="tags" value = {data.tags} onChange={handleInputChange} placeholder="Separe as tags por vírgula!" required></input>
                 </div>
                 <button type = "submit" className={loading ? "disabled" : ""}>Criar</button>
             </form>
