@@ -22,6 +22,10 @@
     color: grey;
 }
 
+.Activenumber{
+    color: grey;
+}
+
 .ContentBox{
     display: grid;
     gap: 5vh;

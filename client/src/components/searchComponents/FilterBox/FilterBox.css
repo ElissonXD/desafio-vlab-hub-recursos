@@ -1,8 +1,9 @@
 .FilterBox form{
     display: flex;
     flex-direction: column;
-    gap:1vh;
+    gap:3vh;
 }
+
 
 .InputLabel{
     display: flex;

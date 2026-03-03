@@ -19,7 +19,7 @@ function CardBox({card}){
             <p>{card.description}</p>
             <div className="MiddleBar">
                 <p><strong>Tipo:</strong> {card.type}</p>
-                <p><strong>URL/Link:</strong> {card.url}</p>
+                <p><strong>URL/Link:</strong> <a target="blank" href={card.url}>{card.url}</a></p>
                 <p><strong>Tags:</strong> {card.tags}</p>
             </div>
             <button onClick={handleNavigate}>Editar</button>

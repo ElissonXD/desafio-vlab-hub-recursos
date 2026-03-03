@@ -59,8 +59,9 @@ function MainPage(){
     return (
         <div className='MainPage'>
             <div className='LeftSide'>
-            <button className='Button' onClick={navigateCreate}>Adicionar Material</button>
             <FilterBox onChange = {handleFilterChange} filters = {filters}/>
+            <h2>Adicionar</h2>
+            <button className='Button' onClick={navigateCreate}>Adicionar Material</button>
             </div>
 
             <div className='RightSide'>
@@ -71,7 +72,7 @@ function MainPage(){
                             <div className='ContentBox'>
                                 <div className='Pagination'>
                                     {Array.from(Array(pages), (item, index) => {
-                                        return <div className='PageNumber' key={index} onClick={() => setCurrentPage(index)}>{index + 1}</div>
+                                        return <div className={'PageNumber' + (index === currentPage ? ' Activenumber' : '')} key={index} onClick={() => setCurrentPage(index)}>{index + 1}</div>
                                     })}
                                 </div>
                                 {cards.map((card) => (

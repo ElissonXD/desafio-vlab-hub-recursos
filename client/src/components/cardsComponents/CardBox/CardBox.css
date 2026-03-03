@@ -7,6 +7,10 @@
     gap: 2vh;
 }
 
+.CardBox a{
+    cursor: pointer;
+}
+
 .TopBar{
     display: flex;
     justify-content: space-between;

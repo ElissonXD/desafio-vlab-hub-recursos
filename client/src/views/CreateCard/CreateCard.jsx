@@ -24,7 +24,7 @@ function CreateCard(){
     }
 
     function handleIAcall(){
-        if(data.type == "" || data.title == ""){
+        if(data.type.trim() == "" || data.title.trim() == ""){
             toast.error("Para gerar a descrição, o título e o tipo do material devem ser preenchidos")
             return
         }
@@ -77,20 +77,30 @@ function CreateCard(){
         <div className='CreateCard'>
             <h2>Adicionar Material</h2>
             <form className='Createform' onSubmit={handleSubmit}>
-                <label htmlFor='title'>Título</label>
-                <input name = "title" value = {data.title} onChange={handleInputChange} required/>
-                <label htmlFor='type' required>Tipo</label>
-                <select name = "type" id = "type" value = {data.type} onChange={handleInputChange}>
-                    <option value = "Vídeo">Vídeo</option>
-                    <option value = "PDF">PDF</option>
-                    <option value = "Link">Link</option>
-                </select>
-                <label htmlFor='url' >Link/URL</label>
-                <input name = "url" id= "url" value = {data.url} onChange={handleInputChange} required/>
-                <label htmlFor='description'>Descrição</label>
-                <textarea name = "description" id="description" value = {data.description} onChange={handleInputChange} required></textarea>
-                <label htmlFor='tags'>Tags</label>
-                <input name = "tags" id="tags" value = {data.tags} onChange={handleInputChange} required></input>
+                <div className='InputLabel'>
+                    <label htmlFor='title'>Título</label>
+                    <input name = "title" value = {data.title} onChange={handleInputChange} required/>
+                </div>
+                <div className='InputLabel'>
+                    <label htmlFor='type' required>Tipo</label>
+                    <select name = "type" id = "type" value = {data.type} onChange={handleInputChange}>
+                        <option value = "Vídeo">Vídeo</option>
+                        <option value = "PDF">PDF</option>
+                        <option value = "Link">Link</option>
+                    </select>
+                </div>
+                <div className='InputLabel'>
+                    <label htmlFor='url' >Link/URL</label>
+                    <input name = "url" id= "url" value = {data.url} onChange={handleInputChange} required/>
+                </div>
+                <div className='InputLabel'>
+                    <label htmlFor='description'>Descrição</label>
+                    <textarea name = "description" id="description" value = {data.description} onChange={handleInputChange} required></textarea>
+                </div>
+                <div className='InputLabel'>
+                    <label htmlFor='tags'>Tags</label>
+                    <input name = "tags" id="tags" value = {data.tags} onChange={handleInputChange} placeholder="Separe as tags por vírgula e um espaço!" required></input>
+                </div>
                 <button type = "submit" className={loading ? "disabled" : ""}>Criar</button>
             </form>
             <div className='ExtraButtons'>

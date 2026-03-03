@@ -1,0 +1,15 @@
+.Header{
+    background-color: orange;
+    color: white;
+    grid-column: 1/ -1;
+}
+
+.Header h2{
+    margin-left: 5vh;
+    transition: ease 0.1s;
+}
+
+.Header h2:hover{
+    color: grey;
+    cursor: pointer;
+}

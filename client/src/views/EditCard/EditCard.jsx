@@ -88,7 +88,7 @@ function EditCard(){
 
     return (
         <div className="EditCard">
-            <h2>Editar material #{id}</h2>
+            <h2>Editar material</h2>
             {loading && (<div>Carregando...</div>)}
             {(error && !loading) && (<div>Algo deu de errado ao coletar informações, tente novamente mais tarde</div>)}
             {(!error && !loading) && (
@@ -107,10 +107,10 @@ function EditCard(){
                         <label htmlFor='description'>Descrição</label>
                         <textarea name = "description" id="description" value = {card.description} onChange={handleInputChange} required></textarea>
                         <label htmlFor='tags'>Tags</label>
-                        <input name = "tags" id="tags" value = {card.tags} onChange={handleInputChange} required></input>
+                        <input name = "tags" id="tags" value = {card.tags} placeholder="Separe as tags por vírgula e um espaço!" onChange={handleInputChange} required></input>
                         <button type = "submit" className={submit ? "disabled" : ""}>Confirmar alterações</button>
                     </form>
-                    <button onClick={() => {navigate("/")}}>Voltar</button>
+                    <button className = "ReturnButton" onClick={() => {navigate("/")}}>Voltar</button>
                     <h2>Zona de perigo</h2>
                     <button className={"DeleteButton" + (submit ? " disabled" : "")} onClick={!submit ? handleDelete : null}>Deletar material</button>
                 </>
