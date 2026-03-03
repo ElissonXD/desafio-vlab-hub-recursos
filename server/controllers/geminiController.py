@@ -10,20 +10,23 @@ load_dotenv()
 client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
 logging.basicConfig(level=logging.INFO)
 
+
 # Pydantic models
 class GeminiResponse(BaseModel):
     description: str
     tags: list[str]
 
+
 class AIException(Exception):
     def __init__(self, name):
         self.name = name
 
+
 def get_gemini_response(request):
-        start_time = time.time()
-        response = client.models.generate_content(
-            model="gemini-3-flash-preview",
-            contents=f"""
+    start_time = time.time()
+    response = client.models.generate_content(
+        model="gemini-3-flash-preview",
+        contents=f"""
             Você é um assistente pedagógico especializado em organizar materiais didáticos.
             Sua tarefa é gerar descrições úteis para alunos com base no 'Título' e no 'Tipo' do material fornecido.
             
@@ -39,15 +42,17 @@ def get_gemini_response(request):
                 "tags": ["tag1", "tag2", "tag3"]
             }}
             """,
-        )
+    )
 
-        latency = round(time.time() - start_time, 2)
+    latency = round(time.time() - start_time, 2)
 
-        text = response.text
+    text = response.text
 
-        json_response = json.loads(text)
-        validated_response = GeminiResponse(**json_response)
+    json_response = json.loads(text)
+    validated_response = GeminiResponse(**json_response)
 
-        logging.info(f'[INFO] AI Request: Title="{request.title}", TokenUsage={response.usage_metadata.total_token_count}, Latency={latency}s.')
+    logging.info(
+        f'[INFO] AI Request: Title="{request.title}", TokenUsage={response.usage_metadata.total_token_count}, Latency={latency}s.'
+    )
 
-        return validated_response.model_dump()
+    return validated_response.model_dump()

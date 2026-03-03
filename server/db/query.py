@@ -77,7 +77,7 @@ def get_all_cards(get_schema):
         params.append(get_schema.type)
 
     if get_schema.tags:
-        tags_split = [tag.strip() for tag in get_schema.tags.split(',')]
+        tags_split = [tag.strip() for tag in get_schema.tags.split(",")]
         for tag in tags_split:
             if tag:
                 query += " AND tags LIKE ?"

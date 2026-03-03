@@ -26,16 +26,20 @@ app.include_router(card.router)
 app.include_router(gemini.router)
 app.include_router(edit.router)
 
+
 def create_database():
     query.create_initial_database()
 
+
 create_database()
+
 
 @app.get("/health")
 def health_check():
     return {"message": "Server running", "status": "OK"}
 
+
 @app.exception_handler(Exception)
-async def generic_exception_handler(request, exc):
-    logging.error(F"[ERROR]: {exc.name}")
+async def generic_exception_handler(request, exc: Exception):
+    logging.error(f"[ERROR]: {exc.args}")
     return JSONResponse(status_code=500, content={"error": str(exc)})
