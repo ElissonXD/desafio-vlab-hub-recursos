@@ -30,3 +30,11 @@
 .CardBox button{
     justify-self: baseline;
 }
+
+@media(max-width:600px){
+
+    .MiddleBar{
+        flex-direction: column;
+    }
+    
+}

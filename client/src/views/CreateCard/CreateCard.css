@@ -19,7 +19,7 @@
 }
 
 .Createform input, select{
-    width: 50vh;
+    max-width: 50vh;
 }
 
 .disabled{

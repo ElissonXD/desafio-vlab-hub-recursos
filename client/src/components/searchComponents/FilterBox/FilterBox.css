@@ -10,3 +10,12 @@
     flex-direction: column;
     gap: 1vh;
 }
+
+@media (max-width:600px){
+    .InputLabel{
+        max-width: 20vh;
+    }
+    .InputLabel select{
+        max-width: 20vh;
+    }
+}
