@@ -36,6 +36,7 @@ A stack utilizada no desenvolvimento foi:
 ### Backend
 - **Python** com **FastAPI**
   - Pydantic para validação de dados
+- Uvicorn
 - Banco de dados: **SQLite3**
 
 ---
