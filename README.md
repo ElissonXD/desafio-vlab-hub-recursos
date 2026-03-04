@@ -37,6 +37,7 @@ A stack utilizada no desenvolvimento foi:
 - **Python** com **FastAPI**
   - Pydantic para validação de dados
 - Uvicorn
+- Google Genai
 - Banco de dados: **SQLite3**
 
 ---
