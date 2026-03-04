@@ -88,7 +88,7 @@ O uso de IA foi permitido durante o desafio e ocorreu de forma ética e transpar
 - Agradeço à VLab pela oportunidade de avançar para a segunda etapa do processo seletivo e pelo desafio proposto.
 - Independentemente do resultado, o desenvolvimento deste projeto trouxe aprendizados importantes, como:
   - Paginação via limit e offset
-  - DevOps e Observalidade
+  - DevOps e Observabilidade
   - Boas práticas de organização e otimização de código
 - Optei por ir além do mínimo solicitado, implementando funcionalidades extras (como filtros e tags) para tornar a aplicação mais próxima de um cenário real
 - Estou satisfeito com o resultado final e com a evolução técnica adquirida ao longo do desenvolvimento
