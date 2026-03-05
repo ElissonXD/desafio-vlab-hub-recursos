@@ -11,7 +11,7 @@ function CardBox({card, handleClick}){
     navigate(`/editar/${card.id}`)
     }
 
-    const tags = card.tags.split(", ")
+    const tags = card.tags.split(",")
 
 
     return (
